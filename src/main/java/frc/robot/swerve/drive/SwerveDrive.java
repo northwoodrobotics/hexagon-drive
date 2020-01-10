@@ -12,35 +12,32 @@ import java.util.List;
  */
 public class SwerveDrive {
     // Enclosures 1-4 are the drive/steer combos
-    private SwerveEnclosure swerveEnclosureNW;
-    private SwerveEnclosure swerveEnclosureNE;
-    private SwerveEnclosure swerveEnclosureSE;
-    private SwerveEnclosure swerveEnclosureSW;
-    private SwerveEnclosure swerveEnclosureW;
-    private SwerveEnclosure swerveEnclosureN;
-    private SwerveEnclosure swerveEnclosureE;
-    private SwerveEnclosure swerveEnclosureS;
+    private SwerveEnclosure swerveEnclosureLF;
+    private SwerveEnclosure swerveEnclosureF;
+    private SwerveEnclosure swerveEnclosureRF;
+    private SwerveEnclosure swerveEnclosureRB;
+    private SwerveEnclosure swerveEnclosureB;
+    private SwerveEnclosure swerveEnclosureLB;
+
 
     private final SwerveMath swerveMath;
 
-    public SwerveDrive(SwerveEnclosure swerveEnclosureNW,
-                       SwerveEnclosure swerveEnclosureNE,
-                       SwerveEnclosure swerveEnclosureSE,
-                       SwerveEnclosure swerveEnclosureSW,
-                       SwerveEnclosure swerveEnclosureW,
-                       SwerveEnclosure swerveEnclosureN,
-                       SwerveEnclosure swerveEnclosureE,
-                       SwerveEnclosure swerveEnclosureS,
+    public SwerveDrive(SwerveEnclosure swerveEnclosureLF,
+                       SwerveEnclosure swerveEnclosureF,
+                       SwerveEnclosure swerveEnclosureRF,
+                       SwerveEnclosure swerveEnclosureRB,
+                       SwerveEnclosure swerveEnclosureB,
+                       SwerveEnclosure swerveEnclosureLB,
+
                        double widthDef, double lengthDef, double widthPlus, double lengthPlus) {
 
-        this.swerveEnclosureNW = swerveEnclosureNW;
-        this.swerveEnclosureNE = swerveEnclosureNE;
-        this.swerveEnclosureSE = swerveEnclosureSE;
-        this.swerveEnclosureSW = swerveEnclosureSW;
-        this.swerveEnclosureW = swerveEnclosureW;
-        this.swerveEnclosureN = swerveEnclosureN;
-        this.swerveEnclosureE = swerveEnclosureE;
-        this.swerveEnclosureS = swerveEnclosureS;
+        this.swerveEnclosureLF = swerveEnclosureLF;
+        this.swerveEnclosureF = swerveEnclosureF;
+        this.swerveEnclosureRF = swerveEnclosureRF;
+        this.swerveEnclosureRB = swerveEnclosureRB;
+        this.swerveEnclosureB = swerveEnclosureB;
+        this.swerveEnclosureLB = swerveEnclosureLB;
+
 
         // instantiate the swerve library with a gyro provider using pigeon1
         swerveMath = new SwerveMath(widthDef, lengthDef, widthPlus, lengthPlus);
@@ -62,14 +59,13 @@ public class SwerveDrive {
         // Get the move command calculated
         List<SwerveDirective> swerveDirectives = swerveMath.move(fwd, str, rcw, gyroValue);
 
-        swerveEnclosureNW.move(swerveDirectives.get(0).getSpeed(), swerveDirectives.get(0).getAngle());
-        swerveEnclosureNE.move(swerveDirectives.get(1).getSpeed(), swerveDirectives.get(1).getAngle());
-        swerveEnclosureSE.move(swerveDirectives.get(2).getSpeed(), swerveDirectives.get(2).getAngle());
-        swerveEnclosureSW.move(swerveDirectives.get(3).getSpeed(), swerveDirectives.get(3).getAngle());
-        swerveEnclosureW.move(swerveDirectives.get(4).getSpeed(), swerveDirectives.get(4).getAngle());
-        swerveEnclosureN.move(swerveDirectives.get(5).getSpeed(), swerveDirectives.get(5).getAngle());
-        swerveEnclosureE.move(swerveDirectives.get(6).getSpeed(), swerveDirectives.get(6).getAngle());
-        swerveEnclosureS.move(swerveDirectives.get(7).getSpeed(), swerveDirectives.get(7).getAngle());
+        swerveEnclosureLF.move(swerveDirectives.get(0).getSpeed(), swerveDirectives.get(0).getAngle());
+        swerveEnclosureF.move(swerveDirectives.get(1).getSpeed(), swerveDirectives.get(1).getAngle());
+        swerveEnclosureRF.move(swerveDirectives.get(2).getSpeed(), swerveDirectives.get(2).getAngle());
+        swerveEnclosureRB.move(swerveDirectives.get(3).getSpeed(), swerveDirectives.get(3).getAngle());
+        swerveEnclosureB.move(swerveDirectives.get(4).getSpeed(), swerveDirectives.get(4).getAngle());
+        swerveEnclosureLB.move(swerveDirectives.get(5).getSpeed(), swerveDirectives.get(5).getAngle());
+
     }
 
     /**
@@ -77,14 +73,12 @@ public class SwerveDrive {
      * @throws Exception 
      */
     public void stop() {
-        swerveEnclosureNW.stop();
-        swerveEnclosureNE.stop();
-        swerveEnclosureSE.stop();
-        swerveEnclosureSW.stop();
-        swerveEnclosureW.stop();
-        swerveEnclosureN.stop();
-        swerveEnclosureE.stop();
-        swerveEnclosureS.stop();
+        swerveEnclosureLF.stop();
+        swerveEnclosureF.stop();
+        swerveEnclosureRF.stop();
+        swerveEnclosureRB.stop();
+        swerveEnclosureB.stop();
+        swerveEnclosureLB.stop();
     }
 
     /**

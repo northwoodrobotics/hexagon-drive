@@ -83,15 +83,13 @@ public class Robot extends TimedRobot {
 	@Override
   public void robotPeriodic() {
 	SmartDashboard.putString("Centric mode", drivetrain.getCentricMode().toString() + "-CENTRIC");
-	SmartDashboard.putBoolean("South is front", drivetrain.SouthIsFront());
+	SmartDashboard.putBoolean("Front is front", drivetrain.SouthIsFront());
 	//prints mod360 to get absolute wheel angle
-	SmartDashboard.putNumber("Northwest wheel angle is : ", drivetrain.getWheelAngles()[0] % 360);
-	SmartDashboard.putNumber("Northeast wheel angle is : ", drivetrain.getWheelAngles()[1] % 360);
-	SmartDashboard.putNumber("Southeast wheel angle is : ", drivetrain.getWheelAngles()[2] % 360);
-	SmartDashboard.putNumber("Southwest wheel angle is : ", drivetrain.getWheelAngles()[3] % 360);
-	SmartDashboard.putNumber("West wheel angle is : ", drivetrain.getWheelAngles()[4] % 360);
-	SmartDashboard.putNumber("North wheel angle is : ", drivetrain.getWheelAngles()[5] % 360);
-	SmartDashboard.putNumber("East wheel angle is : ", drivetrain.getWheelAngles()[6] % 360);
-	SmartDashboard.putNumber("South left wheel angle is : ", drivetrain.getWheelAngles()[7] % 360);
+	SmartDashboard.putNumber("Front Left wheel angle is : ", drivetrain.getWheelAngles()[0] % 360);
+	SmartDashboard.putNumber("Front Right wheel angle is : ", drivetrain.getWheelAngles()[1] % 360);
+	SmartDashboard.putNumber("Back Right wheel angle is : ", drivetrain.getWheelAngles()[2] % 360);
+	SmartDashboard.putNumber("Back Left wheel angle is : ", drivetrain.getWheelAngles()[3] % 360);
+	SmartDashboard.putNumber("Front wheel angle is : ", drivetrain.getWheelAngles()[4] % 360);
+	SmartDashboard.putNumber("Back wheel angle is : ", drivetrain.getWheelAngles()[5] % 360);
   }
 }

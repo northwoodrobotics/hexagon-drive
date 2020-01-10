@@ -22,56 +22,45 @@ public class RobotMap {
 	// Motor Map
 	// I = inverse, S = steer
 
-	// Northwest Wheel
-	public static int northwestS = 15;
-	public static int northwest = 16;
-	public static boolean northwestI = false;
-	public static boolean northwestSI = false;
+	// Frontleft
+	public static int FrontleftS = 1;
+	public static int Frontleft = 2;
+	public static boolean FrontleftI = false;
+	public static boolean FrontleftSI = false;
 
-	// Northeast Wheel
-	public static int northeastS = 3;
-	public static int northeast = 4;
-	public static boolean northeastI = true;
-	public static boolean northeastSI = false;
+	// Rightfront
+	public static int FrontrightS = 3;
+	public static int Frontright = 4;
+	public static boolean FrontrightI = true;
+	public static boolean FrontrightSI = false;
 
-	// Southeast Wheel
-	public static int southeastS = 7;
-	public static int southeast = 8;
-	public static boolean southeastI = true;
-	public static boolean southeastSI = false;
+	// Rightback
+	public static int BackrightS = 5;
+	public static int Backright = 6;
+	public static boolean BackrightI = true;
+	public static boolean BackrightSI = false;
 
-	// Southwest Wheel
-	public static int southwestS = 11;
-	public static int southwest = 12;
-	public static boolean southwestI = false;
-	public static boolean southwestSI = false;
+	// Leftback
+	public static int  BackleftS = 7;
+	public static int Backleft = 8;
+	public static boolean  BackleftI = false;
+	public static boolean  BackleftSI = false;
+	
+	// Front
+	public static int FrontS = 9;
+	public static int Front = 10;
+	public static boolean FrontI = true;
+	public static boolean FrontSI = false;
 
-	// SECOND SWERVE WHEELBASE
+	// Back
+	public static int BackS = 11;
+	public static int Back = 12;
+	public static boolean BackI = false;
+	public static boolean BackSI = false;
 
-	// West Wheel
-	public static int westS = 13;
-	public static int west = 14;
-	public static boolean westI = false;
-	public static boolean westSI = false;
 
-	// North Wheel
-	public static int northS = 1;
-	public static int north = 2;
-	public static boolean northI = true;
-	public static boolean northSI = false;
 
-	// East wheel
-	public static int eastS = 5;
-	public static int east = 6;
-	public static boolean eastI = true;
-	public static boolean eastSI = false;
-
-	// South Wheel
-
-	public static int southS = 9;
-	public static int south = 10;
-	public static boolean southI = false;
-	public static boolean southSI = false;
+	
 
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:

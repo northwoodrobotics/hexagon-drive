@@ -123,80 +123,66 @@ public class SwerveMath {
         double d_Plus = fwd + rcw*(widthPlus / diagonalPlus);
 
 
-        //These are the equations for the wheel speed, for motors 1-4.
+        //These are the equations for the wheel speed, for motors 1-6.
         
-        double wsNW =  Math.sqrt(Math.pow(b_Def,2)+Math.pow(d_Def,2));
-        double wsNE =  Math.sqrt(Math.pow(b_Def,2)+Math.pow(c_Def,2));
-        double wsSE =  Math.sqrt(Math.pow(a_Def,2)+Math.pow(c_Def,2));
-        double wsSW =  Math.sqrt(Math.pow(a_Def,2)+Math.pow(d_Def,2));
-        
-        double wsW =  Math.sqrt(Math.pow(d_Plus,2)+Math.pow((b_Plus/2 + a_Plus/2),2));
-        double wsN =  Math.sqrt(Math.pow(b_Plus,2)+Math.pow((d_Plus/2 + c_Plus/2),2));
-        double wsE =  Math.sqrt(Math.pow(c_Plus,2)+Math.pow((b_Plus/2 + a_Plus/2),2));
-        double wsS =  Math.sqrt(Math.pow(a_Plus,2)+Math.pow((d_Plus/2 + c_Plus/2),2));
+        double wsLF =  Math.sqrt(Math.pow(((0.75 * b_Def)+(0.25 * a_Def)),2)+Math.pow((1.25 * d_Def),2));
+        double wsRF =  Math.sqrt(Math.pow(((0.75 * b_Def)+(0.25 * a_Def)),2)+Math.pow((1.25 * c_Def),2));
+        double wsRB =  Math.sqrt(Math.pow(((0.75 * a_Def)+(0.25 * b_Def)),2)+Math.pow((1.25 * c_Def),2));
+        double wsLB =  Math.sqrt(Math.pow(((0.75 * a_Def)+(0.25 * b_Def)),2)+Math.pow((1.25 * d_Def),2));
 
-        //These are the equations for the wheel angle, for motors 1-4
-        double waNW =  Math.atan2(b_Def,d_Def)*180/Math.PI;
-        double waNE =  Math.atan2(b_Def,c_Def)*180/Math.PI;
-        double waSE =  Math.atan2(a_Def,c_Def)*180/Math.PI;
-        double waSW =  Math.atan2(a_Def,d_Def)*180/Math.PI;
+        double wsF =  Math.sqrt(Math.pow(b_Plus,2)+Math.pow((d_Plus/2 + c_Plus/2),2));
+        double wsB =  Math.sqrt(Math.pow(a_Plus,2)+Math.pow((d_Plus/2 + c_Plus/2),2));
 
-        double waW =  Math.atan2((b_Plus/2 + a_Plus/2),d_Def)*180/Math.PI;
-        double waN =  Math.atan2(b_Def,(d_Plus/2 + c_Plus/2))*180/Math.PI;
-        double waE =  Math.atan2((b_Plus/2 + a_Plus/2),c_Def)*180/Math.PI;
-        double waS =  Math.atan2(a_Def,(d_Plus/2 + c_Plus/2))*180/Math.PI;
+        //These are the equations for the wheel angle, for motors 1-6.
+        double waLF =  Math.atan2(((0.75 * b_Def)+(0.25 * a_Def)),(1.25 * d_Def))*180/Math.PI;
+        double waRF =  Math.atan2(((0.75 * b_Def)+(0.25 * a_Def)),(1.25 * c_Def))*180/Math.PI;
+        double waRB =  Math.atan2(((0.75 * a_Def)+(0.25 * b_Def)),(1.25 * c_Def))*180/Math.PI;
+        double waLB =  Math.atan2(((0.75 * a_Def)+(0.25 * b_Def)),(1.25 * d_Def))*180/Math.PI;
+
+        double waF =  Math.atan2((1.25 * b_Def),(d_Plus/2 + c_Plus/2))*180/Math.PI;
+        double waB =  Math.atan2((1.25 * a_Def),(d_Plus/2 + c_Plus/2))*180/Math.PI;
 
         //This is to normalize the speed (if the largest speed is greater than 1, change accordingly).
-        double max = wsNW;
-        if(wsNE>max) max = wsNE;
-        if(wsSE>max) max = wsSE;
-        if(wsSW>max) max = wsSW;
-        if(wsW>max) max = wsW;
-        if(wsN>max) max = wsN;
-        if(wsE>max) max = wsE;
-        if(wsS>max) max = wsS;
+        double max = wsLF;
+        if(wsRF>max) max = wsRF;
+        if(wsRB>max) max = wsRB;
+        if(wsLB>max) max = wsLB;
+        if(wsF>max) max = wsF;
+        if(wsB>max) max = wsB;
         if(max>1){
-            wsNW/=max;
-            wsNE/=max;
-            wsSE/=max;
-            wsSW/=max;
-            wsW/=max;
-            wsN/=max;
-            wsE/=max;
-            wsS/=max;
+            wsLF/=max;
+            wsRF/=max;
+            wsRB/=max;
+            wsLB/=max;
+            wsF/=max;
+            wsB/=max;
         }
 
         //Wheel angle was in the range of -180 to 180. Now its -.5 to .5
-        waNW/=360;
-        waNE/=360;
-        waSE/=360;
-        waSW/=360;
-        waW/=360;
-        waN/=360;
-        waE/=360;
-        waS/=360;
+        waLF/=360;
+        waRF/=360;
+        waRB/=360;
+        waLB/=360;
+        waF/=360;
+        waB/=360;
 
 
         //Used to scale the movement speeds for testing (so you don't crash into walls)
-        wsNW*=SCALE_SPEED;
-        wsNE*=SCALE_SPEED;
-        wsSE*=SCALE_SPEED;
-        wsSW*=SCALE_SPEED;
-        wsW*=SCALE_SPEED;
-        wsN*=SCALE_SPEED;
-        wsE*=SCALE_SPEED;
-        wsS*=SCALE_SPEED;
+        wsLF*=SCALE_SPEED;
+        wsRF*=SCALE_SPEED;
+        wsRB*=SCALE_SPEED;
+        wsLB*=SCALE_SPEED;
+        wsF*=SCALE_SPEED;
+        wsB*=SCALE_SPEED;
 
-        SwerveDirective directiveNW = new SwerveDirective(waNW, wsNW);
-        SwerveDirective directiveNE = new SwerveDirective(waNE, wsNE);
-        SwerveDirective directiveSE = new SwerveDirective(waSE, wsSE);
-        SwerveDirective directiveSW = new SwerveDirective(waSW, wsSW);
-        SwerveDirective directiveW = new SwerveDirective(waW, wsW);
-        SwerveDirective directiveN = new SwerveDirective(waN, wsN);
-        SwerveDirective directiveE = new SwerveDirective(waE, wsE);
-        SwerveDirective directiveS = new SwerveDirective(waS, wsS);
+        SwerveDirective directiveLF = new SwerveDirective(waLF, wsLF);
+        SwerveDirective directiveRF = new SwerveDirective(waRF, wsRF);
+        SwerveDirective directiveRB = new SwerveDirective(waRB, wsRB);
+        SwerveDirective directiveLB = new SwerveDirective(waLB, wsLB);
+        SwerveDirective directiveF = new SwerveDirective(waF, wsF);
+        SwerveDirective directiveB = new SwerveDirective(waB, wsB);
 
-        return Arrays.asList(directiveNW, directiveNE, directiveSE, directiveSW, directiveW, directiveN, directiveE, directiveS);
+        return Arrays.asList(directiveLF, directiveRF, directiveRB, directiveLB, directiveF, directiveB);
     }
 
     private boolean isFieldCentric() {
