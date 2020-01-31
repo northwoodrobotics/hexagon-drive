@@ -46,12 +46,6 @@ public class RobotMap {
 	public static boolean  BackleftI = false;
 	public static boolean  BackleftSI = false;
 	
-	// Front
-	public static int FrontS = 9;
-	public static int Front = 10;
-	public static boolean FrontI = true;
-	public static boolean FrontSI = false;
-
 	// Back
 	public static int BackS = 11;
 	public static int Back = 12;

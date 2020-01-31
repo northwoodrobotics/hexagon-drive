@@ -116,30 +116,27 @@ public class SwerveMath {
         double b_Def = str + rcw*(lengthDef / diagonalDef);
         double c_Def = fwd - rcw*(widthDef / diagonalDef);
         double d_Def = fwd + rcw*(widthDef / diagonalDef);
+        
         //Plus
+
         double a_Plus = str - rcw*(lengthPlus / diagonalPlus);
-        double b_Plus = str + rcw*(lengthPlus / diagonalPlus);
         double c_Plus = fwd - rcw*(widthPlus / diagonalPlus);
         double d_Plus = fwd + rcw*(widthPlus / diagonalPlus);
 
 
-        //These are the equations for the wheel speed, for motors 1-6.
+        //These are the equations for the wheel speed, for motors 1-5.
         
         double wsLF =  Math.sqrt(Math.pow(((0.75 * b_Def)+(0.25 * a_Def)),2)+Math.pow((1.25 * d_Def),2));
         double wsRF =  Math.sqrt(Math.pow(((0.75 * b_Def)+(0.25 * a_Def)),2)+Math.pow((1.25 * c_Def),2));
         double wsRB =  Math.sqrt(Math.pow(((0.75 * a_Def)+(0.25 * b_Def)),2)+Math.pow((1.25 * c_Def),2));
         double wsLB =  Math.sqrt(Math.pow(((0.75 * a_Def)+(0.25 * b_Def)),2)+Math.pow((1.25 * d_Def),2));
-
-        double wsF =  Math.sqrt(Math.pow(b_Plus,2)+Math.pow((d_Plus/2 + c_Plus/2),2));
         double wsB =  Math.sqrt(Math.pow(a_Plus,2)+Math.pow((d_Plus/2 + c_Plus/2),2));
 
-        //These are the equations for the wheel angle, for motors 1-6.
+        //These are the equations for the wheel angle, for motors 1-5.
         double waLF =  Math.atan2(((0.75 * b_Def)+(0.25 * a_Def)),(1.25 * d_Def))*180/Math.PI;
         double waRF =  Math.atan2(((0.75 * b_Def)+(0.25 * a_Def)),(1.25 * c_Def))*180/Math.PI;
         double waRB =  Math.atan2(((0.75 * a_Def)+(0.25 * b_Def)),(1.25 * c_Def))*180/Math.PI;
         double waLB =  Math.atan2(((0.75 * a_Def)+(0.25 * b_Def)),(1.25 * d_Def))*180/Math.PI;
-
-        double waF =  Math.atan2((1.25 * b_Def),(d_Plus/2 + c_Plus/2))*180/Math.PI;
         double waB =  Math.atan2((1.25 * a_Def),(d_Plus/2 + c_Plus/2))*180/Math.PI;
 
         //This is to normalize the speed (if the largest speed is greater than 1, change accordingly).
@@ -147,14 +144,12 @@ public class SwerveMath {
         if(wsRF>max) max = wsRF;
         if(wsRB>max) max = wsRB;
         if(wsLB>max) max = wsLB;
-        if(wsF>max) max = wsF;
         if(wsB>max) max = wsB;
         if(max>1){
             wsLF/=max;
             wsRF/=max;
             wsRB/=max;
             wsLB/=max;
-            wsF/=max;
             wsB/=max;
         }
 
@@ -163,7 +158,6 @@ public class SwerveMath {
         waRF/=360;
         waRB/=360;
         waLB/=360;
-        waF/=360;
         waB/=360;
 
 
@@ -172,21 +166,21 @@ public class SwerveMath {
         wsRF*=SCALE_SPEED;
         wsRB*=SCALE_SPEED;
         wsLB*=SCALE_SPEED;
-        wsF*=SCALE_SPEED;
         wsB*=SCALE_SPEED;
 
         SwerveDirective directiveLF = new SwerveDirective(waLF, wsLF);
         SwerveDirective directiveRF = new SwerveDirective(waRF, wsRF);
         SwerveDirective directiveRB = new SwerveDirective(waRB, wsRB);
         SwerveDirective directiveLB = new SwerveDirective(waLB, wsLB);
-        SwerveDirective directiveF = new SwerveDirective(waF, wsF);
         SwerveDirective directiveB = new SwerveDirective(waB, wsB);
 
-        return Arrays.asList(directiveLF, directiveRF, directiveRB, directiveLB, directiveF, directiveB);
+        return Arrays.asList(directiveLF, directiveRF, directiveRB, directiveLB, directiveB);
     }
 
     private boolean isFieldCentric() {
         return centricMode.equals(CentricMode.FIELD);
     }
+
+    
 
 }

@@ -23,12 +23,17 @@ public class OI {
 	public static final JoystickButton driveY = new JoystickButton(driveController, 4);
 	public static final JoystickButton driveLTrigger = new JoystickButton(driveController, 5);
 	public static final JoystickButton driveRTrigger = new JoystickButton(driveController, 6);
+	public static final JoystickButton driveL3 = new JoystickButton(driveController, 9);
+
+	
 
 
 	public OI(Robot robot) {
 		driveA.whenPressed(new ToggleFrontDirection(robot.drivetrain));
 		driveX.whenPressed(new ToggleCentricMode(robot.drivetrain));
+		driveL3.whenPressed(new ToggleCentricMode(robot.drivetrain));
 	}
+
 
 	/**
 	 * Adds a deadzone to, for example, a joystick input that does not completely

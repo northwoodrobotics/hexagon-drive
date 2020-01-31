@@ -13,34 +13,33 @@ import java.util.List;
 public class SwerveDrive {
     // Enclosures 1-4 are the drive/steer combos
     private SwerveEnclosure swerveEnclosureLF;
-    private SwerveEnclosure swerveEnclosureF;
     private SwerveEnclosure swerveEnclosureRF;
     private SwerveEnclosure swerveEnclosureRB;
     private SwerveEnclosure swerveEnclosureB;
     private SwerveEnclosure swerveEnclosureLB;
 
-
     private final SwerveMath swerveMath;
 
-    public SwerveDrive(SwerveEnclosure swerveEnclosureLF,
-                       SwerveEnclosure swerveEnclosureF,
-                       SwerveEnclosure swerveEnclosureRF,
-                       SwerveEnclosure swerveEnclosureRB,
-                       SwerveEnclosure swerveEnclosureB,
-                       SwerveEnclosure swerveEnclosureLB,
+    public SwerveDrive( 
+        SwerveEnclosure swerveEnclosureLF,               
+        SwerveEnclosure swerveEnclosureRF,
+        SwerveEnclosure swerveEnclosureRB,
+        SwerveEnclosure swerveEnclosureB,
+        SwerveEnclosure swerveEnclosureLB,
 
-                       double widthDef, double lengthDef, double widthPlus, double lengthPlus) {
+        double widthDef, 
+        double lengthDef, 
+        double widthPlus, 
+        double lengthPlus) {
 
-        this.swerveEnclosureLF = swerveEnclosureLF;
-        this.swerveEnclosureF = swerveEnclosureF;
-        this.swerveEnclosureRF = swerveEnclosureRF;
-        this.swerveEnclosureRB = swerveEnclosureRB;
-        this.swerveEnclosureB = swerveEnclosureB;
-        this.swerveEnclosureLB = swerveEnclosureLB;
+            this.swerveEnclosureLF = swerveEnclosureLF;
+            this.swerveEnclosureRF = swerveEnclosureRF;
+            this.swerveEnclosureRB = swerveEnclosureRB;
+            this.swerveEnclosureB = swerveEnclosureB;
+            this.swerveEnclosureLB = swerveEnclosureLB;
 
-
-        // instantiate the swerve library with a gyro provider using pigeon1
-        swerveMath = new SwerveMath(widthDef, lengthDef, widthPlus, lengthPlus);
+            // instantiate the swerve library with a gyro provider using pigeon1
+            swerveMath = new SwerveMath(widthDef, lengthDef, widthPlus, lengthPlus);
 
     }
 
@@ -60,11 +59,10 @@ public class SwerveDrive {
         List<SwerveDirective> swerveDirectives = swerveMath.move(fwd, str, rcw, gyroValue);
 
         swerveEnclosureLF.move(swerveDirectives.get(0).getSpeed(), swerveDirectives.get(0).getAngle());
-        swerveEnclosureF.move(swerveDirectives.get(1).getSpeed(), swerveDirectives.get(1).getAngle());
-        swerveEnclosureRF.move(swerveDirectives.get(2).getSpeed(), swerveDirectives.get(2).getAngle());
-        swerveEnclosureRB.move(swerveDirectives.get(3).getSpeed(), swerveDirectives.get(3).getAngle());
-        swerveEnclosureB.move(swerveDirectives.get(4).getSpeed(), swerveDirectives.get(4).getAngle());
-        swerveEnclosureLB.move(swerveDirectives.get(5).getSpeed(), swerveDirectives.get(5).getAngle());
+        swerveEnclosureRF.move(swerveDirectives.get(1).getSpeed(), swerveDirectives.get(1).getAngle());
+        swerveEnclosureRB.move(swerveDirectives.get(2).getSpeed(), swerveDirectives.get(2).getAngle());
+        swerveEnclosureB.move(swerveDirectives.get(3).getSpeed(), swerveDirectives.get(3).getAngle());
+        swerveEnclosureLB.move(swerveDirectives.get(4).getSpeed(), swerveDirectives.get(4).getAngle());
 
     }
 
@@ -74,7 +72,6 @@ public class SwerveDrive {
      */
     public void stop() {
         swerveEnclosureLF.stop();
-        swerveEnclosureF.stop();
         swerveEnclosureRF.stop();
         swerveEnclosureRB.stop();
         swerveEnclosureB.stop();
