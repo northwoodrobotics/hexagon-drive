@@ -184,9 +184,9 @@ public class Drivetrain extends Subsystem {
 	
 	public void drive(double fwd, double strafe, double rotateCW) {
 		if (LimitSpeed()) {
-			fwd /= 3;
-			strafe /= 3;
-			rotateCW /= 3;	
+			fwd *= 0.25;
+			strafe *= 0.25;
+			rotateCW *= 0.25;	
 		}	
 		if ((centricMode != CentricMode.ROBOT) || (!isBackForward())) {
 			fwd = -fwd;
