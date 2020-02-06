@@ -23,38 +23,28 @@ public class RobotMap {
 	// I = inverse, S = steer
 
 	// Frontleft
-	public static int FrontleftS = 1;
-	public static int Frontleft = 2;
-	public static boolean FrontleftI = false;
+	public static int Frontleft = 1;
+	public static int FrontleftS = 2;
+	public static boolean FrontleftI = true;
 	public static boolean FrontleftSI = false;
 
 	// Rightfront
-	public static int FrontrightS = 3;
-	public static int Frontright = 4;
-	public static boolean FrontrightI = true;
+	public static int Frontright = 3;
+	public static int FrontrightS = 4;
+	public static boolean FrontrightI = false;
 	public static boolean FrontrightSI = false;
 
 	// Rightback
-	public static int BackrightS = 5;
-	public static int Backright = 6;
-	public static boolean BackrightI = true;
+	public static int Backright = 5;
+	public static int BackrightS = 6;
+	public static boolean BackrightI = false;
 	public static boolean BackrightSI = false;
 
 	// Leftback
-	public static int  BackleftS = 7;
-	public static int Backleft = 8;
-	public static boolean  BackleftI = false;
+	public static int  Backleft = 7;
+	public static int BackleftS = 8;
+	public static boolean  BackleftI = true;
 	public static boolean  BackleftSI = false;
-	
-	// Back
-	public static int BackS = 11;
-	public static int Back = 12;
-	public static boolean BackI = false;
-	public static boolean BackSI = false;
-
-
-
-	
 
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:

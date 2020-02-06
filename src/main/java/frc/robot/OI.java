@@ -31,7 +31,7 @@ public class OI {
 	public OI(Robot robot) {
 		driveA.whenPressed(new ToggleFrontDirection(robot.drivetrain));
 		driveX.whenPressed(new ToggleCentricMode(robot.drivetrain));
-		driveL3.whenPressed(new ToggleCentricMode(robot.drivetrain));
+		driveL3.whenPressed(new ToggleLimitSpeed(robot.drivetrain));
 	}
 
 

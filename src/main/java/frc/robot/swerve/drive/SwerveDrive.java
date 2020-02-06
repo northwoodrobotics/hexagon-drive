@@ -15,7 +15,6 @@ public class SwerveDrive {
     private SwerveEnclosure swerveEnclosureLF;
     private SwerveEnclosure swerveEnclosureRF;
     private SwerveEnclosure swerveEnclosureRB;
-    private SwerveEnclosure swerveEnclosureB;
     private SwerveEnclosure swerveEnclosureLB;
 
     private final SwerveMath swerveMath;
@@ -24,22 +23,18 @@ public class SwerveDrive {
         SwerveEnclosure swerveEnclosureLF,               
         SwerveEnclosure swerveEnclosureRF,
         SwerveEnclosure swerveEnclosureRB,
-        SwerveEnclosure swerveEnclosureB,
         SwerveEnclosure swerveEnclosureLB,
 
         double widthDef, 
-        double lengthDef, 
-        double widthPlus, 
-        double lengthPlus) {
+        double lengthDef) {
 
             this.swerveEnclosureLF = swerveEnclosureLF;
             this.swerveEnclosureRF = swerveEnclosureRF;
             this.swerveEnclosureRB = swerveEnclosureRB;
-            this.swerveEnclosureB = swerveEnclosureB;
             this.swerveEnclosureLB = swerveEnclosureLB;
 
             // instantiate the swerve library with a gyro provider using pigeon1
-            swerveMath = new SwerveMath(widthDef, lengthDef, widthPlus, lengthPlus);
+            swerveMath = new SwerveMath(widthDef, lengthDef);
 
     }
 
@@ -61,8 +56,7 @@ public class SwerveDrive {
         swerveEnclosureLF.move(swerveDirectives.get(0).getSpeed(), swerveDirectives.get(0).getAngle());
         swerveEnclosureRF.move(swerveDirectives.get(1).getSpeed(), swerveDirectives.get(1).getAngle());
         swerveEnclosureRB.move(swerveDirectives.get(2).getSpeed(), swerveDirectives.get(2).getAngle());
-        swerveEnclosureB.move(swerveDirectives.get(3).getSpeed(), swerveDirectives.get(3).getAngle());
-        swerveEnclosureLB.move(swerveDirectives.get(4).getSpeed(), swerveDirectives.get(4).getAngle());
+        swerveEnclosureLB.move(swerveDirectives.get(3).getSpeed(), swerveDirectives.get(3).getAngle());
 
     }
 
@@ -74,7 +68,6 @@ public class SwerveDrive {
         swerveEnclosureLF.stop();
         swerveEnclosureRF.stop();
         swerveEnclosureRB.stop();
-        swerveEnclosureB.stop();
         swerveEnclosureLB.stop();
     }
 

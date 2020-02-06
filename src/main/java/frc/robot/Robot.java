@@ -90,6 +90,5 @@ public class Robot extends TimedRobot {
 	SmartDashboard.putNumber("Front Right wheel angle is : ", drivetrain.getWheelAngles()[1] % 360);
 	SmartDashboard.putNumber("Back Right wheel angle is : ", drivetrain.getWheelAngles()[2] % 360);
 	SmartDashboard.putNumber("Back Left wheel angle is : ", drivetrain.getWheelAngles()[3] % 360);
-	SmartDashboard.putNumber("Back wheel angle is : ", drivetrain.getWheelAngles()[4] % 360);
   }
 }
